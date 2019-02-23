@@ -22,6 +22,14 @@ const Diawi = function(opts) {
     opts = {};
   }
 
+  if (!opts.token) {
+    throw (new Error('token is mandatory'));
+  }
+
+  if (!opts.path) {
+    throw (new Error('path is mandatory'));
+  }
+
   this.token = opts.token.trim();
   this.path = opts.path.trim();
   if (!fs.existsSync(this.path)) {
